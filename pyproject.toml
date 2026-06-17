@@ -15,13 +15,14 @@ dependencies = ["urisysedge>=0.1.0"]
 
 [project.optional-dependencies]
 writer = ["python-docx>=1.1.0"]
-dev = ["pytest>=8.0", "goal>=2.1.0",
+dev = ["pytest>=8.0", "goal>=2.1.0", "uricore>=0.1.8",
     "costs>=0.1.20",
     "pfix>=0.1.60",
 ]
 
 [tool.uv.sources]
 urisysedge = { path = "../urisysedge", editable = true }
+uricore = { path = "../uricore", editable = true }
 
 [tool.setuptools.packages.find]
 where = ["."]

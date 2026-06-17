@@ -1,39 +1,37 @@
 id: urioffice
-version: 0.1.0
+version: 1
 scheme: urioffice
-
+description: Office document mock/writer/LibreOffice automation for urisys-node.
 uri_patterns:
   - pattern: urioffice://{host}/query/status
     kind: query
     operation: office.status
-    handler: python://urioffice.handlers:status
     side_effects: false
     approval: not_required
-
   - pattern: urioffice://{host}/document/command/open
     kind: command
     operation: office.document.open
-    handler: python://urioffice.handlers:document_open
     side_effects: true
     approval: required
-
   - pattern: urioffice://{host}/document/command/save
     kind: command
     operation: office.document.save
-    handler: python://urioffice.handlers:document_save
     side_effects: true
     approval: required
-
   - pattern: urioffice://{host}/document/command/export-pdf
     kind: command
     operation: office.document.export_pdf
-    handler: python://urioffice.handlers:document_export_pdf
     side_effects: true
     approval: required
-
   - pattern: urioffice://{host}/writer/command/render
     kind: command
     operation: office.writer.render
-    handler: python://urioffice.handlers:writer_render
     side_effects: true
     approval: required
+handlers:
+  python:
+    office.status: python://urioffice.handlers:status
+    office.document.open: python://urioffice.handlers:document_open
+    office.document.save: python://urioffice.handlers:document_save
+    office.document.export_pdf: python://urioffice.handlers:document_export_pdf
+    office.writer.render: python://urioffice.handlers:writer_render

@@ -3317,6 +3317,25 @@ wheels = [
 ]
 
 [[package]]
+name = "uricore"
+version = "0.1.8"
+source = { editable = "../uricore" }
+dependencies = [
+    { name = "pyyaml" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "costs", marker = "extra == 'dev'", specifier = ">=0.1.20" },
+    { name = "goal", marker = "extra == 'dev'", specifier = ">=2.1.0" },
+    { name = "pfix", marker = "extra == 'dev'", specifier = ">=0.1.60" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
+    { name = "pyyaml", specifier = ">=6.0" },
+    { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.6.0" },
+]
+provides-extras = ["dev"]
+
+[[package]]
 name = "urioffice"
 version = "0.1.1"
 source = { editable = "." }
@@ -3330,6 +3349,7 @@ dev = [
     { name = "goal" },
     { name = "pfix" },
     { name = "pytest" },
+    { name = "uricore" },
 ]
 writer = [
     { name = "python-docx" },
@@ -3342,6 +3362,7 @@ requires-dist = [
     { name = "pfix", marker = "extra == 'dev'", specifier = ">=0.1.60" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
     { name = "python-docx", marker = "extra == 'writer'", specifier = ">=1.1.0" },
+    { name = "uricore", marker = "extra == 'dev'", editable = "../uricore" },
     { name = "urisysedge", editable = "../urisysedge" },
 ]
 provides-extras = ["writer", "dev"]
@@ -3350,6 +3371,10 @@ provides-extras = ["writer", "dev"]
 name = "urisysedge"
 version = "0.1.1"
 source = { editable = "../urisysedge" }
+dependencies = [
+    { name = "pyyaml" },
+    { name = "uricore" },
+]
 
 [package.metadata]
 requires-dist = [
@@ -3357,6 +3382,8 @@ requires-dist = [
     { name = "goal", marker = "extra == 'dev'", specifier = ">=2.1.0" },
     { name = "pfix", marker = "extra == 'dev'", specifier = ">=0.1.60" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
+    { name = "pyyaml", specifier = ">=6.0" },
+    { name = "uricore", specifier = ">=0.1.8" },
 ]
 provides-extras = ["dev"]
 
