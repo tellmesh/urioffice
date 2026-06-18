@@ -3317,11 +3317,12 @@ wheels = [
 ]
 
 [[package]]
-name = "uricore"
-version = "0.1.8"
-source = { editable = "../uricore" }
+name = "uricontrol"
+version = "0.1.14"
+source = { editable = "../uricontrol" }
 dependencies = [
     { name = "pyyaml" },
+    { name = "uriguard" },
 ]
 
 [package.metadata]
@@ -3332,15 +3333,25 @@ requires-dist = [
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
     { name = "pyyaml", specifier = ">=6.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.6.0" },
+    { name = "uriguard", editable = "../uriguard" },
+    { name = "uriresolver", marker = "extra == 'mesh'", editable = "../uriresolver" },
+    { name = "uriresolver", marker = "extra == 'mqtt'", editable = "../uriresolver" },
+    { name = "uritransport", marker = "extra == 'mesh'", editable = "../uritransport" },
+    { name = "uritransport", extras = ["mqtt"], marker = "extra == 'mqtt'", editable = "../uritransport" },
 ]
-provides-extras = ["dev"]
+provides-extras = ["mesh", "mqtt", "dev"]
+
+[[package]]
+name = "uriguard"
+version = "0.1.0"
+source = { editable = "../uriguard" }
 
 [[package]]
 name = "urioffice"
 version = "0.1.1"
 source = { editable = "." }
 dependencies = [
-    { name = "urisysedge" },
+    { name = "uricontrol" },
 ]
 
 [package.optional-dependencies]
@@ -3349,7 +3360,7 @@ dev = [
     { name = "goal" },
     { name = "pfix" },
     { name = "pytest" },
-    { name = "uricore" },
+    { name = "uricontrol" },
 ]
 writer = [
     { name = "python-docx" },
@@ -3362,30 +3373,10 @@ requires-dist = [
     { name = "pfix", marker = "extra == 'dev'", specifier = ">=0.1.60" },
     { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
     { name = "python-docx", marker = "extra == 'writer'", specifier = ">=1.1.0" },
-    { name = "uricore", marker = "extra == 'dev'", editable = "../uricore" },
-    { name = "urisysedge", editable = "../urisysedge" },
+    { name = "uricontrol", editable = "../uricontrol" },
+    { name = "uricontrol", marker = "extra == 'dev'", editable = "../uricontrol" },
 ]
 provides-extras = ["writer", "dev"]
-
-[[package]]
-name = "urisysedge"
-version = "0.1.1"
-source = { editable = "../urisysedge" }
-dependencies = [
-    { name = "pyyaml" },
-    { name = "uricore" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "costs", marker = "extra == 'dev'", specifier = ">=0.1.20" },
-    { name = "goal", marker = "extra == 'dev'", specifier = ">=2.1.0" },
-    { name = "pfix", marker = "extra == 'dev'", specifier = ">=0.1.60" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=8.0" },
-    { name = "pyyaml", specifier = ">=6.0" },
-    { name = "uricore", specifier = ">=0.1.8" },
-]
-provides-extras = ["dev"]
 
 [[package]]
 name = "urllib3"
